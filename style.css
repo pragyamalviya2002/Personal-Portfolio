@@ -713,23 +713,23 @@ footer h1{
 .sidebar ul{
     padding-left: 20px;
 }
-.slidebar ul li{
+.sidebar ul li{
     list-style: none;
     margin-bottom: 30px;
 }
-.slidebar ul li a{
+.sidebar ul li a{
     text-decoration: none;
     color: var(--text-light);
     font-size: 30px;
     font-weight: 700;
     text-shadow: 0 0 15px rgba(128, 128, 128, 0.256);
 }
-.slidebar .social-icons{
+.sidebar .social-icons{
     padding-left: 20px;
     margin-top: 60px;
     text-wrap: nowrap;
 }
-.slidebar .social-icons a{
+.sidebar .social-icons a{
     font-size: 35px;
     padding: 5px 5px;
     cursor: pointer;
@@ -1009,6 +1009,7 @@ footer h1{
     }
 
 }
+
 
 
 
