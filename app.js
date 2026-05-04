@@ -9,6 +9,7 @@ document.querySelectorAll(".project-vidbox video")
 .forEach(video => {
   video.addEventListener("mouseenter", () => video.play());
   video.addEventListener("mouseleave", () => video.pause());
+  video.addEventListener("touchstart", () => video.play(), { passive: true });
 });
 
 // SIDEBAR ELEMENTS
@@ -41,16 +42,26 @@ close.addEventListener("click", function(){
     sideBar.classList.add("close-sidebar")
 })
 
+document.querySelectorAll(".sidebar a").forEach(link => {
+  link.addEventListener("click", () => {
+    sideBar.classList.remove("open-sidebar");
+    sideBar.classList.add("close-sidebar");
+  });
+});
+
 //form validation
 const formBtn = document.querySelector(".contact-box button");
 
 formBtn.addEventListener("click", () => {
-  const name = document.querySelector("input[type='text']").value;
-  const email = document.querySelector("input[type='email']").value;
+  const name = document.querySelector(".contact-box input[type='text']").value.trim();
+  const email = document.querySelector("input[type='email']").value.trim();
+  const message = document.querySelector(".contact-box textarea").value.trim();
 
-  if (!name || !email) {
+  if (!name || !email || !message) {
     alert("Please fill all fields");
   } else {
-    alert("Message sent successfully!");
+    const subject = encodeURIComponent(`Portfolio message from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+    window.location.href = `mailto:malviyapragya524@gmail.com?subject=${subject}&body=${body}`;
   }
 });
